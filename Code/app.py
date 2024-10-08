@@ -1,9 +1,9 @@
 """Main script, uses other modules to generate sentences."""
-from flask import Flask
+from flask import Flask, request, render_template, redirect
 from random_word import random_word
 from histogram import histogram
 from markov_chain import MarkovChain
-
+from twitter import tweet  # Import the tweet function
 
 app = Flask(__name__)
 
@@ -16,11 +16,14 @@ markov_chain = MarkovChain(word_list)
 @app.route("/")
 def home():
     """Route that returns a web page containing the generated text."""
-    # word = random_word(histogram)
-    # return f"<p>{word}</p>"
     sentence = markov_chain.generate_sentence()
-    return f"<p>{sentence}</p>"
+    return render_template('index.html', sentence=sentence)
 
+@app.route('/tweet', methods=['POST'])
+def tweet_route():
+    status = request.form['sentence']
+    tweet(status)  # Call the tweet function to send the tweet
+    return redirect('/')
 
 if __name__ == "__main__":
     """To run the Flask server, execute `python app.py` in your terminal.
