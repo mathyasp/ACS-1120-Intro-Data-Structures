@@ -1,3 +1,16 @@
+# ACS-3220 
+![Uptime Robot status](https://img.shields.io/uptimerobot/status/m797822191-60753cbae1d64c5e55397f12)
+
+- Caprover-hosted [deployed app](https://tweet-generator.dev.mathyasp.me/)
+- [Status Page](https://stats.uptimerobot.com/2kdolceXZw/797822191)
+
+### How to build and run
+- Clone the repo
+- Navigate to the `Code` directory
+- Build and open the app by running `docker-compose up` in the terminal
+
+##
+
 # ACS-1120 Intro to Data Structures and Algorithms
 ## Tweet Generator
 
